@@ -11,7 +11,7 @@ jobs:
      steps:
      - name: using the output 
        id: output_app
-       run: echo "app=26 >> $GITHUB_OUTPUT"
+       run: echo "app=26" >> $GITHUB_OUTPUT
        
      - name: print the output of the steps 
        run: echo "${{ steps.output_app.outputs.app }}"

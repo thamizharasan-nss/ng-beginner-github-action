@@ -7,6 +7,8 @@ on:
 jobs:
    dummy:
      runs-on: ubuntu-latest
+     outputs:
+       job_out: ${{ steps.output_app.outputs.app }}
 
      steps:
      - name: using the output 
@@ -15,6 +17,14 @@ jobs:
        
      - name: print the output of the steps 
        run: echo "${{ steps.output_app.outputs.app }}"
+
+   reuse-output:
+     runs-on: ubuntu-latest
+     needs: [ dummy]
+     steps:
+     - name: using the out from job 1 
+       run: echo "${{ needs.dummy.outputs.job_out }}"
+         
 
      
     

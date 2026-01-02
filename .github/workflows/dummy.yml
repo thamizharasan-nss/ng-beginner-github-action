@@ -20,7 +20,7 @@ jobs:
        run: echo "node_version=$(node -v)" >> $GITHUB_OUTPUT
 
      - name: using the output from the step
-       run: echo "{{ steps.node.outputs.node_version }}
+       run: echo "{{ steps.node.outputs.node_version }}"
 
      - name: Install the node cli 
        run: |

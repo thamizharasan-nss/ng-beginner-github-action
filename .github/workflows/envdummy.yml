@@ -1,0 +1,16 @@
+name: using the env variables 
+
+on:
+  push:
+    branches: [ main ]
+    
+env:
+  APPLICATION: devops
+jobs:
+  dummyjob1: 
+    runs-on: ubuntu-latest 
+    steps:
+    - name: using the env 
+      run: echo "$ {{ env.APPLICATION}}"
+    
+    

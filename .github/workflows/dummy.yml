@@ -16,7 +16,11 @@ jobs:
          node-version: 18.x 
          
      - name: print the node version 
-       run: node -v 
+       id: node
+       run: echo "node_version=$(node -v)" >> $GITHUB_OUTPUT
+
+     - name: using the output from the step
+       run: echo "{{ steps.node.outputs.node_version }}
 
      - name: Install the node cli 
        run: |

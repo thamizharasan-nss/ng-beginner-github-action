@@ -1,0 +1,30 @@
+name: Build the angular app
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  Running-angular-job:
+     runs-on: ubuntu-latest
+     steps:
+     - name: checkout stage 
+       uses: actions/checkout@v6.0.1 
+       
+     - name: setup node
+       uses: actions/setup-node@v6.1.0
+       with:
+         node-version: 18.x 
+         
+     - name: print the node version 
+       run: node -v 
+
+     - name: Install the node cli 
+       run: |
+         npm install -g @angular/cli@~15
+         npm install 
+         
+     - name: Build the app 
+       run: ng build
+  
+    
+    

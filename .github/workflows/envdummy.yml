@@ -28,4 +28,13 @@ jobs:
       env:
         OS: unix 
       run: echo "${{ env.OS }}"  
+
+  dummy-job4:
+    runs-on: ubuntu-latest
+    steps:
+    - name: using the env programatically 
+      run: echo "JAVA_VERSION=23" >> $GITHUB_ENV
+
+    - name: uisng the env prog 
+      run: echo "${{ env.JAVA_VERSION }}" 
       

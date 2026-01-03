@@ -37,4 +37,7 @@ jobs:
 
     - name: uisng the env prog 
       run: echo "${{ env.JAVA_VERSION }}" 
+
+    - name: using the default env 
+      run: echo "GITHUB_RUN_NUMBER-$GITHUB_RUN_NUMBER-${{github.run_number}}"
       

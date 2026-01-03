@@ -8,54 +8,5 @@ concurrency:
     group: ci-${{ github.workflow }}
 jobs:
   Running-angular-job:
-     runs-on: ubuntu-latest
-     steps:
-     - name: checkout stage 
-       uses: actions/checkout@v6.0.1 
-       
-     - name: setup node
-       uses: actions/setup-node@v6.1.0
-       with:
-         node-version: 18.x 
-         
-     - name: print the node version 
-       id: node
-       run: echo "node_version=$(node -v)" >> $GITHUB_OUTPUT
-
-     - name: using the output from the step
-       run: echo "${{ steps.node.outputs.node_version }}"
-
-     - name: Install the node cli 
-       run: |
-         npm install -g @angular/cli@~15
-         npm install 
-  
-     - name: Build the app 
-       run: ng build
-
-     - name: sleep
-       run: sleep 20 
-
-     - name: upload the artifact
-       uses: actions/upload-artifact@v6.0.0
-       with:
-        name: artifact
-        path: dist
-
-
-  deploy:
-     runs-on: ubuntu-latest
-     needs: [ Running-angular-job ]
-     steps:
-     - name: download the artifact 
-       uses: actions/download-artifact@v7.0.0
-       with:
-         name: artifact 
-         path: artifact-final 
-
-     - name: Display structure of downloaded files
-       run: ls -R artifact-final
-       
+    uses: ./.github/workflows/reusable.yml
      
-
-         

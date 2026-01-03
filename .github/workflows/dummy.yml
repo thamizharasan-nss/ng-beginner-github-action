@@ -9,4 +9,6 @@ concurrency:
 jobs:
   Running-angular-job:
     uses: ./.github/workflows/reusable.yml
+    with:
+      nodeversion: 18.x 
      

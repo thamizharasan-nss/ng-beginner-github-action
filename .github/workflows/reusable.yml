@@ -47,6 +47,7 @@ jobs:
 
   deploy:
      runs-on: ubuntu-latest
+     environment: deploy
      needs: [ Running-angular-job ]
      steps:
      - name: download the artifact 

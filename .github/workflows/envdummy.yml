@@ -12,5 +12,20 @@ jobs:
     steps:
     - name: using the env 
       run: echo "${{ env.APPLICATION}}"
-    
-    
+
+  dummy-job2:
+    runs-on: ubuntu-latest
+    env:
+      USER: botuser
+    steps:
+    - name: using the job level env 
+      run: echo ${{ env.USER }}" 
+
+  dummy-job3:
+    runs-on: ubuntu-latest
+    steps:
+    - name: using the env in step level 
+      env:
+        OS: unix 
+      run: echo "${{ env.OS }}"  
+      

@@ -2,6 +2,11 @@ name: use the reusable workflow
 
 on:
   workflow_call:
+    inputs:
+      nodeversion: 
+        required: true
+        type: string
+        description: "This node version used" 
 
 jobs:
   Running-angular-job:
@@ -13,7 +18,7 @@ jobs:
      - name: setup node
        uses: actions/setup-node@v6.1.0
        with:
-         node-version: 18.x 
+         node-version: "${{ inputs.nodeversion }}"
          
      - name: print the node version 
        id: node

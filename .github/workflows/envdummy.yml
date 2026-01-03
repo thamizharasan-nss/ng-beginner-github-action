@@ -19,7 +19,7 @@ jobs:
       USER: botuser
     steps:
     - name: using the job level env 
-      run: echo ${{ env.USER }}" 
+      run: echo "${{ env.USER }}" 
 
   dummy-job3:
     runs-on: ubuntu-latest

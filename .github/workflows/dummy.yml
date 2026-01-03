@@ -3,6 +3,9 @@ name: Build the angular app
 on:
   push:
     branches: [ main ]
+concurrency:
+    cancel-in-progress: false 
+    group: ci-${{ github.workflow }}
 jobs:
   Running-angular-job:
      runs-on: ubuntu-latest
@@ -29,6 +32,9 @@ jobs:
   
      - name: Build the app 
        run: ng build
+
+     - name: sleep
+       run: sleep 20 
 
      - name: upload the artifact
        uses: actions/upload-artifact@v6.0.0

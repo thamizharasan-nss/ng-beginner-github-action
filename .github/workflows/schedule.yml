@@ -1,0 +1,17 @@
+name: using the schedule in the workflow 
+
+on: 
+ schedule:
+  - cron: "*/5 * * * *"
+jobs:
+  dummyjob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: using the echo 
+      run: |
+        echo "This simple job"
+        echo "This chceking the schedule"
+      
+
+  
+  

@@ -3,6 +3,7 @@ name: using the schedule in the workflow
 on: 
   schedule:
     - cron: "*/5 * * * *"
+  workflow_dispatch:  
 jobs:
   dummyjob:
     runs-on: ubuntu-latest

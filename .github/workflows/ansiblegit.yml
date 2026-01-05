@@ -1,0 +1,28 @@
+name: uisng the ansible playbook 
+
+on:
+  workflow_dispatch:
+    inputs:
+      ansible-version:
+        required: true 
+        type: string
+        default: "2.18"
+
+jobs:
+   dummy-ansible:
+      runs-on: ubuntu-latest
+      steps:
+      - name: using checkout action 
+        uses: actions/checkout@v6.0.1
+
+      - name: steup the ansible 
+        uses: alex-oleshkevich/setup-ansible@v1.0.1
+        with:
+          version: ${{ inputs.ansible-version }}
+
+      - name: check the ansible version 
+        run : ansible --version 
+       
+        
+        
+      

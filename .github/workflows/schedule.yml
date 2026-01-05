@@ -12,6 +12,11 @@ jobs:
       run: |
         echo "This simple job"
         echo "This chceking the schedule"
+
+    - name: Script with workflow commands
+      run: |
+       echo "MY_VAR=hello" >> $GITHUB_ENV
+       echo "::notice::Script executed"     
       
 
   

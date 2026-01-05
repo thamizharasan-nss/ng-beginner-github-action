@@ -6,7 +6,7 @@ on:
       ansible-version:
         required: true 
         type: string
-        default: "2.9.2"
+        default: "13.2.0"
 
 jobs:
    dummy-ansible:

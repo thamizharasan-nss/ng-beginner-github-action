@@ -29,8 +29,8 @@ jobs:
         run: ansible --version 
 
       - name: run the ansible playbook 
-        run: ansible-playbook testplaybook.yml
-        working-directory: ng-beginner-github-action
+        run: ./ansible-playbook testplaybook.yml
+       
        
         
         

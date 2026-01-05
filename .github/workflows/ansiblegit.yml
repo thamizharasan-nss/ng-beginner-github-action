@@ -15,6 +15,11 @@ jobs:
       - name: using checkout action 
         uses: actions/checkout@v6.0.1
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"  
+
       - name: steup the ansible 
         uses: alex-oleshkevich/setup-ansible@v1.0.1
         with:
